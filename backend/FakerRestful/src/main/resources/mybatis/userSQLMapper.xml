@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- ssafy.member.selectOne으로 호출 -->
+<mapper namespace="ssafy.user">
+
+ <!-- 
+ 	insert / update / delete / selectOne / selectList 
+  -->
+	<insert id="insert" parameterType="UserVo">
+		insert into user(username, password, gender, age) 
+							values(	
+									#{username},
+									#{password},
+									#{gender},
+									#{age}
+							)
+	</insert>
+	
+
+
+		
+</mapper>
