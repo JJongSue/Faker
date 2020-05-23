@@ -12,9 +12,27 @@ public class UserServiceImpl implements UserService{
 	UserRepository repo;
 
 	@Override
-	public int userInsert(UserVo user) {
+	public int insertUser(UserVo user) {
 		// TODO Auto-generated method stub
-		return repo.userInsert(user);
+		return repo.insertUser(user);
+	}
+
+	@Override
+	public int updateUser(UserVo user) {
+		// TODO Auto-generated method stub
+		return repo.updateUser(user);
+	}
+
+	@Override
+	public int deleteUser(int user_id) {
+		// TODO Auto-generated method stub
+		return repo.deleteUser(user_id);
+	}
+
+	@Override
+	public UserVo selectUser(int user_id) {
+		// TODO Auto-generated method stub
+		return repo.selectUser(user_id);
 	}
 	
 	

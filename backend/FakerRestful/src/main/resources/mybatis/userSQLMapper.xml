@@ -18,6 +18,21 @@
 									#{age}
 							)
 	</insert>
+	<update id="update" parameterType="UserVo">
+		update user set 	password=#{password},
+							gender=#{gender},
+							age=#{age}
+						where user_id=#{user_id}
+	</update>
+	
+	<delete id="delete" parameterType="int">
+		delete from user where user_id=#{user_id}
+	</delete>
+
+	<select id="selectOne" parameterType="int" resultType="UserVo">
+		select user_id, username, password, gender, age from user where user_id=#{user_id}
+	</select>
+	
 	
 
 
