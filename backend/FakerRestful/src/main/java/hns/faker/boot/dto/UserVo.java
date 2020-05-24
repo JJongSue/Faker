@@ -6,6 +6,15 @@ public class UserVo {
 	private String password;
 	private String gender;
 	private int age;
+	
+	// user_id를 제외한 나머지를 받고 만들어주는 생성자
+	public UserVo(String username, String password, String gender, int age) {
+		super();
+		this.username = username;
+		this.password = password;
+		this.gender = gender;
+		this.age = age;
+	}
 	public UserVo(int user_id, String username, String password, String gender, int age) {
 		super();
 		this.user_id = user_id;
@@ -13,6 +22,15 @@ public class UserVo {
 		this.password = password;
 		this.gender = gender;
 		this.age = age;
+	}
+	public UserVo(String username, String password) {
+		this.username = username;
+		this.password = password;
+	}
+	
+	public UserVo() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 	public int getUser_id() {
 		return user_id;

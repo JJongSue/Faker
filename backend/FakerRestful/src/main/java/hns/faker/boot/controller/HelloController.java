@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import hns.faker.boot.dto.UserVo;
@@ -28,15 +29,15 @@ public class HelloController {
 		return "Hello Spring World";
 	}
 	
-	@PostMapping(path="/user")
-	private ResponseEntity<Map<String, Object>> memInsert(@RequestBody UserVo uservo) {
+	
+	
+	@PostMapping(path="/insert")
+	private ResponseEntity<Map<String, Object>> insertUser(@RequestBody UserVo uservo) {
 		ResponseEntity<Map<String, Object>> resEntity = null;
 		try {
-			System.out.println(uservo.toString());
-			userService.userInsert(uservo);
-			System.out.println("되는겨");
+			userService.insertUser(uservo);
 			Map<String, Object> msg = new HashMap<String, Object>();
-			msg.put("resMsg", "회원 등록성공");
+			msg.put("code", "회원 등록성공");
 			msg.put("resValue", uservo.getUser_id());
 			resEntity = new ResponseEntity<Map<String, Object>>(msg, HttpStatus.OK);
 		} catch (RuntimeException e) {
@@ -46,6 +47,8 @@ public class HelloController {
 		}
 		return resEntity;
 	}
+	
+	
 
 	
 	
