@@ -7,4 +7,6 @@ public interface UserService {
 	public int updateUser(UserVo user);
 	public int deleteUser(int user_id);
 	public UserVo selectUser(int user_id);
+	public UserVo loginUser(String username, String password);
+	public String passwordEncryption(String rowPassword);
 }

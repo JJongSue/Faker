@@ -33,7 +33,10 @@
 		select user_id, username, password, gender, age from user where user_id=#{user_id}
 	</select>
 	
-	
+	<select id="login" parameterType="UserVo" resultType="UserVo">
+		select user_id, username, password, gender, age from user 
+		where username=#{username} and password=#{password}
+	</select>
 
 
 		

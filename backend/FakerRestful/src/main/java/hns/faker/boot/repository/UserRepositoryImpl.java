@@ -35,5 +35,12 @@ public class UserRepositoryImpl implements UserRepository{
 		// TODO Auto-generated method stub
 		return session.selectOne("ssafy.user.selectOne", user_id);
 	}
+
+	@Override
+	public UserVo login(UserVo user) {
+		// TODO Auto-generated method stub
+		return session.selectOne("ssafy.user.login",user);
+	}
+	
 	
 }
