@@ -7,4 +7,5 @@ public interface UserRepository {
 	public int updateUser(UserVo user);
 	public int deleteUser(int user_id);
 	public UserVo selectUser(int user_id);
+	public UserVo login( UserVo user);
 }

@@ -23,6 +23,10 @@ public class UserVo {
 		this.gender = gender;
 		this.age = age;
 	}
+	public UserVo(String username, String password) {
+		this.username = username;
+		this.password = password;
+	}
 	
 	public UserVo() {
 		super();
