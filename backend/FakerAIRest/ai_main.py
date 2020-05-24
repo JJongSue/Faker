@@ -16,10 +16,10 @@ def findFace():
         data = request.get_json(force=True)
         base64img = data['image']
         a = facerecognition.find_location(base64img)
-        print(type(a))
+        # print(len(a))
         # print('a', a)
         d = {'code': '00', 'images': a}
-        print(d)
+        # print(d)
         data = json.dumps(d)
         return data
         

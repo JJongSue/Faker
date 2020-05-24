@@ -17,8 +17,8 @@ def find_location(base64_img):
     base64_img = base64_img[1]
 
     #인코딩 된 이미지 PIL.image를 nparray로 변환후 face_locations함수를 이용해 얼굴 위치 찾음
-    encoding_img = base64.b64decode(encoding_img)
-    image = Image.open(io.BytesIO(i))
+    encoding_img = base64.b64decode(base64_img)
+    image = Image.open(io.BytesIO(encoding_img))
     image_np = np.array(image)
     face_locations = face_recognition.face_locations(image_np)
 
