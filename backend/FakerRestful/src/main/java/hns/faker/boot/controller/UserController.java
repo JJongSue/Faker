@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import hns.faker.boot.dto.UserVo;
@@ -21,10 +22,12 @@ import hns.faker.boot.service.UserService;
 
 @CrossOrigin(origins = { "*"}, maxAge = 6000)
 @RestController
-@RequestMapping("/user")
+@RequestMapping("api/user")
 public class UserController {
 	@Autowired
 	UserService userService;
+	
+	
 	
 	@GetMapping(path="/select/{user_id}")
 	private ResponseEntity<Map<String, Object>> selectUser(@PathVariable int user_id){
