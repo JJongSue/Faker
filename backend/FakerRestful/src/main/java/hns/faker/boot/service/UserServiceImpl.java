@@ -39,9 +39,8 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public UserVo loginUser(String username, String password) {
-		password= passwordEncryption(password);
-		return repo.login(new UserVo(username, password));
+	public UserVo loginUser(String username) {
+			return  repo.login(username);
 	}
 
 	@Override
