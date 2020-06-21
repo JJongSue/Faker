@@ -13,6 +13,7 @@ def read_data(data_dir, image_size, crop_size=None):
     :return: X_set : np.ndarray, shape: (N, H, W, C).
     """
     img_list = [img for img in os.listdir(data_dir) if img.split(".")[-1] in IMAGE_EXTS]
+    print(img_list)
     images = []
     
     for img in img_list:

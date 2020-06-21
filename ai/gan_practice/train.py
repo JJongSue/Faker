@@ -9,16 +9,17 @@ from learning.optimizers import MomentumOptimizer as Optimizer
 from learning.evaluators import FIDEvaluator as Evaluator
 
 """ 1. Load and split datasets """
-root_dir = os.path.join('data/FFHQ/') # FIXME
+root_dir = os.path.join('D:/dataset/ffhq-dataset') # FIXME
 # root_dir = os.path.join('data/celeba-dataset/img_align_celeba') # FIXME
-trainval_dir = os.path.join(root_dir, 'thumbnails128x128')
+trainval_dir = os.path.join(root_dir, 'thumbnails128x128/00000')
 # trainval_dir = os.path.join(root_dir, 'img_align_celeba')
-
+print(trainval_dir)
 # Set image size and number of class
 IM_SIZE = (64, 64)
 
 # Load trainval set and split into train/val sets
 X_trainval = dataset.read_data(trainval_dir, IM_SIZE, 96)
+print(X_trainval)
 trainval_size = X_trainval.shape[0]
 train_set = dataset.Dataset(X_trainval)
 print(train_set.num_examples)
@@ -54,7 +55,7 @@ hp_d['D_channel'] = 64
 graph = tf.get_default_graph()
 config = tf.ConfigProto()
 config.gpu_options.allow_growth = True
-config.gpu_options.visible_device_list = '3'
+config.gpu_options.visible_device_list = '0'
 model = GAN([IM_SIZE[0], IM_SIZE[1], 3], **hp_d)
 
 evaluator = Evaluator()
@@ -68,3 +69,4 @@ with open(os.path.join(save_dir, 'hyperparam.json'), 'w') as f:
 	
 sess = tf.Session(graph=graph, config=config)
 train_results = optimizer.train(sess, save_dir=save_dir, details=True, verbose=True, **hp_d)
+print("되는겨")

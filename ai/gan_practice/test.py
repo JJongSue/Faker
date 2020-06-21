@@ -12,7 +12,9 @@ from learning.fid import FID
 """ 1. Load training hyperparameters"""
 hp_d = dict()
 
-save_dir = './DCGAN_training_FFHQ_z_100_96crop_01/'
+# save_dir = './DCGAN_training_FFHQ_z_100_96crop_01/'
+save_dir = './DCGAN_training_FFHQ_z_100_96crop_05_dense/'
+
 
 with open(os.path.join(save_dir, 'hyperparam.json'), 'r') as f:
     hp_d = json.load(f)
@@ -25,7 +27,7 @@ IM_SIZE = (64, 64)
 graph = tf.get_default_graph()
 config = tf.ConfigProto()
 config.gpu_options.allow_growth = True
-config.gpu_options.visible_device_list = '1'
+config.gpu_options.visible_device_list = '0'
 model = GAN([IM_SIZE[0], IM_SIZE[1], 3], **hp_d)
 
 saver = tf.train.Saver()
