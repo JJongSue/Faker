@@ -1,14 +1,22 @@
 <template>
     <div class="nav">
         <div class="contents">
-          <v-row justify="space-btween">
-            <v-col cols="12" sm="6" md="2">
+          <v-row >
+            <v-col :class="`d-flex justify-start mb-6`">
               <router-link to="/"><h1>Faker</h1></router-link>
             </v-col>
-            <v-col cols="12" sm="6" md="2">
-              <router-link to="/login"> <button @click="signIn">Sign In</button> </router-link>
+            <v-col :class="`d-flex justify-center mb-6 ` "  >
+              <router-link to="/make/image"><h3>Make Image</h3></router-link>
+            </v-col>
+            <v-col :class="`d-flex justify-center mb-6`">
+              <router-link to="/make/video"><h3>Make video</h3></router-link>
+            </v-col>
+            <v-col :class="`d-flex justify-end mb-6`">
+              <router-link to="/login">Sign In</router-link>
+
               <button @click="signUp">Get started</button>
             </v-col>
+
           </v-row>
         </div>
     </div>
@@ -19,7 +27,7 @@ export default {
   name: 'Nav',
   data () {
     return {
-
+      activeItem: 'about'
     }
   },
   methods: {
@@ -28,6 +36,9 @@ export default {
     },
     signUp () {
 
+    },
+    isActive: function (menuItem) {
+      return this.activeItem === menuItem
     }
   }
 }
@@ -47,14 +58,34 @@ export default {
     /* margin-left: 5%; */
     width:90%;
     height: 90px;
-    background: #aaa;
+    /* background: #aaa; */
     color:#fff;
     overflow: hidden;
     position: relative;
     margin:0 auto;
 }
-.contents .h1{
-  float: left;
+.nav .contents h1{
+   color : #ffb917 !important;
+}
+.nav .contents a{
+  text-decoration: none ;
+  color: #6B6B6B;
+  line-height: 90px;
+}
+.nav .contents a:hover{
+  color: #ffffff;
 }
 
+.nav .contents .router-link-active {
+  color : #ffffff;
+}
+.nav .contents .col{
+  padding-top: 0px !important;
+}
+
+.nav .contents h3{
+  /* height: 90px; */
+
+ vertical-align: middle;
+}
 </style>

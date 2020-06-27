@@ -2,6 +2,8 @@ package hns.faker.boot.util;
 
 import lombok.RequiredArgsConstructor;
 
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.filter.GenericFilterBean;
 
 import javax.servlet.FilterChain;
@@ -17,18 +19,28 @@ public class JwtAuthenticationFilter extends GenericFilterBean {
 	
 	private JwtTokenProvider jwtTokenProvider;
 
-	public JwtAuthenticationFilter() {}
+//	public JwtAuthenticationFilter() {}
 
-	public JwtAuthenticationFilter(JwtTokenProvider jwtTokenProvider2) {}
+	public JwtAuthenticationFilter(JwtTokenProvider jwtTokenProvider2) {
+		this.jwtTokenProvider = jwtTokenProvider2;
+	}
 
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
-		if(excludeUrl((HttpServletRequest)request)) {
-			 chain.doFilter(request, response); //아닐경우 요청값 변경
-		}else {
-			
-		}
+	    String token = jwtTokenProvider.resolveToken((HttpServletRequest) request);
+        if (token != null && jwtTokenProvider.validateToken(token)) {
+            Authentication auth = jwtTokenProvider.getAuthentication(token);
+            SecurityContextHolder.getContext().setAuthentication(auth);
+        }
+        System.out.println(token);
+        chain.doFilter(request, response);
+//		if(excludeUrl((HttpServletRequest)request)) {
+//			 chain.doFilter(request, response); //아닐경우 요청값 변경
+//			
+//		}else {
+//			
+//		}
 //		HttpServletRequest httprequest= (HttpServletRequest)request;
 //		 if(excludeUrl(httprequest)){
 //			 chain.doFilter(request, response);//걸러내는 URI일 경우 요청값 그대로 처리
@@ -50,8 +62,9 @@ public class JwtAuthenticationFilter extends GenericFilterBean {
 	private boolean excludeUrl(HttpServletRequest request) {
 		String uri = request.getRequestURI().toString().trim();
 		System.out.println(uri);
+		
 		if (uri.startsWith("/swagger")||uri.startsWith("/webjars")||uri.startsWith("/v2")) {
-			System.out.println("여긴가");
+//			System.out.println("여긴가");
 			return true;
 		} else  {
 			return false;
