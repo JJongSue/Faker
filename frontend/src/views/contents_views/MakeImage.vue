@@ -1,12 +1,20 @@
 <template>
     <div id="make_image">
         <div class="input_image">
-        <div>여기는 이미지 만드는 곳입니다.</div>
-        <label for="upload_file">업로드</label>
-        <v-icon large dark>image</v-icon>
+
         <v-icon large dark>videocam</v-icon>
-        <v-icon>event</v-icon>
-        <input type="file" id="upload_file" accept="image/png, image/jpeg">
+        <!-- <v-icon>event</v-icon> -->
+        <!-- <label for="upload_file">업로드</label> -->
+        <!-- <v-icon large dark>image</v-icon> -->
+         <v-file-input
+
+            accept="image/png, image/jpeg, image/bmp"
+            placeholder="Pick an avatar"
+            prepend-icon="camera"
+            label="Avatar"
+            dark
+        ></v-file-input>
+
         </div>
         <div class="progress">
             <v-progress-linear :dark="true" value="15"></v-progress-linear>
