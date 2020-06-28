@@ -37,9 +37,9 @@ public class UserRepositoryImpl implements UserRepository{
 	}
 
 	@Override
-	public UserVo login(UserVo user) {
+	public UserVo login(String username) {
 		// TODO Auto-generated method stub
-		return session.selectOne("ssafy.user.login",user);
+		return session.selectOne("ssafy.user.login",username);
 	}
 	
 	
