@@ -86,6 +86,7 @@ public class UserController {
 	private ResponseEntity<Map<String, Object>> insertUser(@RequestBody UserVo uservo) {
 		ResponseEntity<Map<String, Object>> resEntity = null;
 		try {
+			System.out.println("회원가입 들어");
 			System.out.println(uservo.toString());
 			int res = userService.insertUser(uservo);
 			Map<String, Object> msg = new HashMap<String, Object>();
