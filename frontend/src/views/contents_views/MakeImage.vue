@@ -6,8 +6,7 @@
         <!-- <v-icon>event</v-icon> -->
         <!-- <label for="upload_file">업로드</label> -->
         <!-- <v-icon large dark>image</v-icon> -->
-         <v-file-input
-
+        <v-file-input
             accept="image/png, image/jpeg, image/bmp"
             placeholder="Pick an avatar"
             prepend-icon="camera"
