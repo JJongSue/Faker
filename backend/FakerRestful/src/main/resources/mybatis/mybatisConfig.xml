@@ -6,11 +6,13 @@
 <configuration>
 	<typeAliases>
 		<typeAlias type="hns.faker.boot.dto.UserVo" alias="UserVo"/>
+		<typeAlias type="hns.faker.boot.dto.ContentsVo" alias="ContentsVo"/>
 		
 	</typeAliases>
 	
 	<mappers>
 		<mapper resource="mybatis/userSQLMapper.xml"/>
+		<mapper resource="mybatis/contentsSQLMapper.xml"/>
 		
 	</mappers>
 	

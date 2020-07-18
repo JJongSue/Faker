@@ -1,31 +1,31 @@
 package hns.faker.boot.dto;
 
 public class ContentsVo {
-	private int content_id;
+	private int contents_id;
 	private int user_id;
-	private String content_type;
-	private String content_src;
-	public ContentsVo(int content_id, int user_id, String content_type, String content_src) {
+	private String contents_type;
+	private String contents_src;
+	public ContentsVo(int contents_id, int user_id, String contents_type, String contents_src) {
 		super();
-		this.content_id = content_id;
+		this.contents_id = contents_id;
 		this.user_id = user_id;
-		this.content_type = content_type;
-		this.content_src = content_src;
+		this.contents_type = contents_type;
+		this.contents_src = contents_src;
 	}
 		
 	//insert시 user_id하고 type, src만 받고 insert하는 문 
-	public ContentsVo(int user_id, String content_type, String content_src) {
+	public ContentsVo(int user_id, String contents_type, String contents_src) {
 		super();
 		this.user_id = user_id;
-		this.content_type = content_type;
-		this.content_src = content_src;
+		this.contents_type = contents_type;
+		this.contents_src = contents_src;
 	}
 
-	public int getContent_id() {
-		return content_id;
+	public int getcontents_id() {
+		return contents_id;
 	}
-	public void setContent_id(int content_id) {
-		this.content_id = content_id;
+	public void setcontents_id(int contents_id) {
+		this.contents_id = contents_id;
 	}
 	public int getUser_id() {
 		return user_id;
@@ -33,22 +33,22 @@ public class ContentsVo {
 	public void setUser_id(int user_id) {
 		this.user_id = user_id;
 	}
-	public String getContent_type() {
-		return content_type;
+	public String getcontents_type() {
+		return contents_type;
 	}
-	public void setContent_type(String content_type) {
-		this.content_type = content_type;
+	public void setcontents_type(String contents_type) {
+		this.contents_type = contents_type;
 	}
-	public String getContent_src() {
-		return content_src;
+	public String getcontents_src() {
+		return contents_src;
 	}
-	public void setContent_src(String content_src) {
-		this.content_src = content_src;
+	public void setcontents_src(String contents_src) {
+		this.contents_src = contents_src;
 	}
 	@Override
 	public String toString() {
-		return "ContentVo [content_id=" + content_id + ", user_id=" + user_id + ", content_type=" + content_type
-				+ ", content_src=" + content_src + "]";
+		return "ContentVo [contents_id=" + contents_id + ", user_id=" + user_id + ", contents_type=" + contents_type
+				+ ", contents_src=" + contents_src + "]";
 	}
 	
 }

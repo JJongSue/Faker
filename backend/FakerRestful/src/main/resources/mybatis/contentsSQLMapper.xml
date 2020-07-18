@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- ssafy.member.selectOne으로 호출 -->
+<mapper namespace="ssafy.contents">
+
+	<insert id="insert" parameterType="ContentsVo">
+		insert into contents(contents_id, user_id, contents_type, contents_src) 
+							values(	
+									#{contents_id},
+									#{user_id},
+									#{contents_type},
+									#{contents_src}
+							)
+	</insert>
+	
+	<update id="update" parameterType="ContentsVo">
+		update contents set contents_type=#{contents_type},
+							contents_src=#{contents_src}
+						where contents_id=#{contents_id}
+	</update>
+	
+	<delete id="delete" parameterType="int">
+		delete from contents where contents_id=#{contents_id}
+	</delete>
+
+ 	<select id="selectOne" parameterType="int" resultType="UserVo">
+		select contents_id, user_id, contents_type, contents_src from contents where contents_id=#{contents_id}
+	</select>
+
+</mapper>
