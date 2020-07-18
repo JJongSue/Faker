@@ -6,9 +6,9 @@
         </div>
         <div class="example">sample movie</div>
         <div id="sample" v-on:scroll="makeScroll">
-            <div class="box">1</div>
-            <div class="box">2</div>
-            <div class="box">3</div>
+            <div class="box"><h3>1</h3></div>
+            <div class="box"><h3>2</h3></div>
+            <div class="box"><h3>3</h3></div>
             <div class="box">4</div>
             <div class="box">5</div>
             <div class="box">6</div>
@@ -31,7 +31,7 @@ export default {
       //   const list = document.querySelector('ul')
 
       function doSomething (diff) {
-        list.scrollLeft += (diff)
+        list.scrollLeft += (diff) * 0.3
       }
 
       list.addEventListener('wheel', function (e) {
@@ -58,12 +58,13 @@ export default {
     padding: 0;
     display: block;
     white-space: nowrap;
-    height: 800px;
+    height: 100%;
     overflow-y: visible;
     overflow-x: scroll;
     padding: 0;
     font-size: 0;
-    padding-top:100px
+    padding-top:100px;
+    padding-bottom: 100px;
     /* align-items: center;
     justify-content: center; */
 }
@@ -80,6 +81,7 @@ export default {
     border:2px solid #ffb917;
     background: black;
     overflow-y: visible;
-    transform: scale( 1.3 );
+    transform: scale( 1.1 );
+    color : white;
 }
 </style>
