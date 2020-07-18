@@ -102,7 +102,7 @@ def find_best_frame(source, driving, cpu=False):
             frame_num = i
     return frame_num
     
-def ai_demo(source_image, driving_video, config, checkpoint, cpu, relative, adapt_scale):
+def ai_demo(source_image, driving_video, config, checkpoint, relative=True, adapt_scale=True, cpu=False ):
     # source_image = imageio.imread(opt.source_image)
     source_image = imageio.imread(source_image)
     # reader = imageio.get_reader(opt.driving_video)
