@@ -4,6 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import vuetify from '@/plugins/vuetify'
+import VueCoreVideoPlayer from 'vue-core-video-player'
 
 Vue.config.productionTip = false
 
@@ -13,5 +14,6 @@ new Vue({
   router,
   components: { App },
   template: '<App/>',
-  vuetify
+  vuetify,
+  VueCoreVideoPlayer
 })
