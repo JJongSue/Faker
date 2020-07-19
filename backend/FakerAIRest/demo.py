@@ -111,10 +111,12 @@ def ai_demo(source_image, driving_video, config, checkpoint, relative=True, adap
     driving_video = []
     try:
         for im in reader:
+            print(type(im))
             driving_video.append(im)
     except RuntimeError:
         pass
     reader.close()
+    print(type(driving_video))
 
     source_image = resize(source_image, (256, 256))[..., :3]
     driving_video = [resize(frame, (256, 256))[..., :3] for frame in driving_video]
