@@ -2,7 +2,7 @@
     <div id="make_image">
         <div class="input_image">
 
-        <v-icon large dark>videocam</v-icon>
+        <v-icon class="select-img" large dark>videocam</v-icon>
         <!-- <v-icon>event</v-icon> -->
         <!-- <label for="upload_file">업로드</label> -->
         <!-- <v-icon large dark>image</v-icon> -->
