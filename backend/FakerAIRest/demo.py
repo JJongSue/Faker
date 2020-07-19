@@ -102,7 +102,7 @@ def find_best_frame(source, driving, cpu=False):
             frame_num = i
     return frame_num
     
-def ai_demo(source_image, driving_video, config, checkpoint, cpu, relative, adapt_scale):
+def ai_demo(source_image, driving_video, config, checkpoint, relative=True, adapt_scale=True, cpu=False ):
     # source_image = imageio.imread(opt.source_image)
     source_image = imageio.imread(source_image)
     # reader = imageio.get_reader(opt.driving_video)
@@ -111,10 +111,12 @@ def ai_demo(source_image, driving_video, config, checkpoint, cpu, relative, adap
     driving_video = []
     try:
         for im in reader:
+            print(type(im))
             driving_video.append(im)
     except RuntimeError:
         pass
     reader.close()
+    print(type(driving_video))
 
     source_image = resize(source_image, (256, 256))[..., :3]
     driving_video = [resize(frame, (256, 256))[..., :3] for frame in driving_video]
